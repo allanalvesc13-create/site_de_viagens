@@ -1,78 +1,104 @@
 # AlvesViagens
 
-Parte visual do sistema de viagens AlvesViagens. A aplicação usa React, Vite e React Router, com uma API Django executada separadamente.
+Sistema web de viagens desenvolvido com React + Vite no frontend e Django no backend.
 
-## Requisitos
+O projeto simula uma plataforma de viagens com páginas de destinos, passagens, ofertas, serviços e informações institucionais. A aplicação também utiliza a API pública do IBGE para trabalhar com estados e municípios.
 
-- Node.js e npm instalados
-- Python 3.10 ou superior
-- Django instalado no ambiente Python do servidor
+## Tecnologias
 
-## Estrutura
+### Frontend
+
+* React
+* Vite
+* React Router
+* JavaScript
+* HTML
+* CSS
+
+### Backend
+
+* Python
+* Django
+
+### Integrações
+
+* API do IBGE
+
+## Funcionalidades
+
+* Página inicial
+* Página de destinos
+* Página de passagens
+* Página de ofertas
+* Página de serviços
+* Página sobre a empresa
+* Sistema de cadastro e login
+* Comunicação entre frontend e backend
+* Consulta de estados e municípios
+
+## Estrutura do projeto
 
 ```text
-viagens/
-├── m/                  # Servidor Django
+site_de_viagens/
+├── m/
 │   ├── manage.py
-│   ├── accounts/       # Login e cadastro
-│   └── trips/          # Viagens e API de viagens
-└── meu-frontend/       # Parte visual React + Vite
-    ├── src/
-    └── package.json
+│   ├── accounts/
+│   └── trips/
+├── meu-frontend/
+│   ├── src/
+│   └── package.json
+└── README.md
 ```
 
-## Instalação da parte visual
+### Backend (`m/`)
 
-No PowerShell, entre na pasta do frontend e instale as dependências:
+Responsável pelo servidor Django, autenticação e regras da aplicação.
 
-```powershell
-cd "C:\Users\allan\OneDrive\Documentos\viagens\meu-frontend"
-npm.cmd install
-```
+### Frontend (`meu-frontend/`)
+
+Responsável pela interface desenvolvida em React.
+
+## Rotas
+
+| Rota         | Descrição       |
+| ------------ | --------------- |
+| `/`          | Página inicial  |
+| `/destinos`  | Destinos        |
+| `/passagens` | Passagens       |
+| `/ofertas`   | Ofertas         |
+| `/servicos`  | Serviços        |
+| `/sobre`     | Sobre a empresa |
 
 ## Como executar
 
-Abra dois terminais: um para o servidor e outro para a parte visual.
+### Pré-requisitos
 
-### Servidor Django
+* Node.js
+* Python 3
+* Django
 
-```powershell
-cd "C:\Users\allan\OneDrive\Documentos\viagens\m"
+### Backend
+
+```bash
+cd m
 python manage.py migrate
 python manage.py runserver
 ```
 
-O servidor ficará disponível em `http://127.0.0.1:8000/`.
+### Frontend
 
-### Site React
-
-```powershell
-cd "C:\Users\allan\OneDrive\Documentos\viagens\meu-frontend"
-npm.cmd run dev -- --host 127.0.0.1
+```bash
+cd meu-frontend
+npm install
+npm run dev
 ```
 
-Abra `http://127.0.0.1:5173/` no navegador. O terminal do Vite precisa continuar aberto enquanto o site estiver sendo usado.
+## Objetivo
 
-## Páginas do site
+Este projeto foi desenvolvido para अभ्यास em desenvolvimento web full-stack, com foco em frontend, backend, API e organização de aplicação com múltiplas páginas.
 
-- `/` - início
-- `/destinos` - destinos
-- `/passagens` - passagens disponíveis
-- `/ofertas` - ofertas
-- `/servicos` - serviços
-- `/sobre` - informações sobre a empresa
+## Autor
 
-## Comandos úteis
+Allan Alves
+GitHub: https://github.com/allanalvesc13-create
 
-```powershell
-npm.cmd run build   # gera a versão de produção
-npm.cmd run lint    # verifica problemas de lint
-npm.cmd run preview # visualiza a versão compilada
-```
-
-## Observações
-
-- No PowerShell, use `npm.cmd` caso `npm` seja bloqueado pela política de execução de scripts.
-- A parte visual consulta a API Django em `http://127.0.0.1:8000/`.
-- O site também consulta a API pública do IBGE para carregar estados e municípios.
-- O servidor de desenvolvimento do Vite para quando o terminal ou o VS Code é fechado. Para acessá-lo novamente, execute o comando de desenvolvimento outra vez.
